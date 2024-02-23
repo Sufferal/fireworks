@@ -2,9 +2,50 @@
   --primary-font: "Open Sans", sans-serif;
   --primary-color: #333;
   --secondary-color: #f4f4f4;
+  --hover-color: #00b4d8;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
 }
 
 body {
   font-family: var(--primary-font);
   color: var(--primary-color);
 }
+
+#navbar {
+  margin: 3rem 0;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .navbar-item {
+    margin-right: 5rem;
+    
+    .navbar-link {
+      text-decoration: none;
+      font-size: 2rem;
+      color: var(--primary-color);
+      font-weight: bold;
+      transition: color 0.2s ease-in-out;
+      
+      &:hover {
+        color: var(--hover-color);
+      }
+    }
+  }
+}
+
+
