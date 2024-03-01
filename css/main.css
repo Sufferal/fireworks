@@ -247,3 +247,49 @@ button {
     line-height: 1.4;
   }
 }
+
+/* ============================================ ABOUT =============================================== */
+.values {
+  display: flex;
+}
+
+.values-title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 5rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+  
+  .value-img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+  }
+
+  .value-title {
+    display: inline-block;
+    font-size: 2.5rem;
+    padding: 1rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    background-color: var(--hover-color);
+  }
+
+  .value-desc {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    font-style: italic;
+  }
+}
