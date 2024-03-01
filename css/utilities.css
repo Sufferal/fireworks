@@ -59,3 +59,7 @@
   }
 }
 
+.highlight {
+  color: var(--accent-color);
+  font-weight: bold;
+}

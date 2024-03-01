@@ -45,6 +45,10 @@ textarea {
   .navbar-item {
     margin-right: 5rem;
 
+    &:last-child {
+      margin-right: 0;
+    }
+
     .navbar-link {
       text-decoration: none;
       font-size: 2rem;
@@ -54,6 +58,16 @@ textarea {
 
       &:hover {
         color: var(--hover-color);
+      }
+    }
+
+    .navbar-icon {
+      width: 25px;
+      height: auto;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.15);
       }
     }
   }
@@ -351,5 +365,22 @@ textarea {
 
   &:hover {
     opacity: 0.85;
+  }
+}
+
+/* ============================================ FOOTER =============================================== */
+#footer {
+  padding: 3rem 0;
+  text-align: center;
+
+  .footer-motto {
+    font-style: italic;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-copyright {
+    font-size: 1.8rem;
+    font-weight: bold;
   }
 }
