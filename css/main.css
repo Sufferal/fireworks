@@ -245,6 +245,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5rem;
 }
 
 .review {
@@ -256,7 +257,6 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
 
   &:nth-child(even) {
     flex-direction: row-reverse;
@@ -266,10 +266,6 @@ textarea {
       margin-right: 0;
       margin-left: 2rem;
     }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 
   .review-img {
@@ -296,6 +292,7 @@ textarea {
 /* ============================================ ABOUT =============================================== */
 .values {
   display: flex;
+  gap: 5rem;
 }
 
 .values-title {
@@ -313,12 +310,7 @@ textarea {
   border-radius: 5px;
   padding: 5rem 2rem;
   text-align: center;
-  margin-right: 5rem;
 
-  &:last-child {
-    margin-right: 0;
-  }
-  
   .value-img {
     width: 150px;
     height: 150px;
@@ -353,7 +345,7 @@ textarea {
   }
 }
 
-/* ============================================ ABOUT =============================================== */
+/* ============================================ CONTACT =============================================== */
 .contact-form {
   max-width: 700px;
   display: flex;
