@@ -17,6 +17,7 @@
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body,
@@ -34,7 +35,19 @@ textarea {
 
 /* ============================================ NAVBAR =============================================== */
 #navbar {
-  margin: 3rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  padding: 2rem 0;
+  --horizontal-length: 0px;
+  --vertical-length: 0px;
+  --blur-radius: 7px;
+  --spread-radius: 0px;
+  --shadow-color: var(--primary-color);
+  -webkit-box-shadow: var(--horizontal-length) var(--vertical-length) var(--blur-radius) var(--spread-radius) var(--shadow-color);
+  -moz-box-shadow: var(--horizontal-length) var(--vertical-length) var(--blur-radius) var(--spread-radius) var(--shadow-color); 
+  box-shadow: var(--horizontal-length) var(--vertical-length) var(--blur-radius) var(--spread-radius) var(--shadow-color); 
 }
 
 .navbar-list {
