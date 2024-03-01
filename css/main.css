@@ -72,11 +72,24 @@ textarea {
       &:hover {
         color: var(--hover-color);
       }
+
+      &.navbar-link-icon {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+    }
+
+    #cartBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
     }
 
     .navbar-icon {
       width: 25px;
       height: auto;
+      margin-right: 0.5rem;
       transition: all 0.2s ease-in-out;
 
       &:hover {
