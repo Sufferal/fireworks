@@ -28,6 +28,10 @@ button {
   color: var(--primary-color);
 }
 
+textarea {
+  resize: none;
+}
+
 /* ============================================ NAVBAR =============================================== */
 #navbar {
   margin: 3rem 0;
@@ -291,5 +295,61 @@ button {
     font-size: 1.7rem;
     line-height: 1.5;
     font-style: italic;
+  }
+}
+
+/* ============================================ ABOUT =============================================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+
+  .form-label {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .form-input {
+    min-width: 500px;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: var(--purchase-color);
+    }
+  }
+
+  #message {
+    min-height: 150px;
+  
+  }
+}
+
+.form-btn {
+  min-width: 500px;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  background-color: var(--purchase-color);
+  color: var(--secondary-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.85;
   }
 }
