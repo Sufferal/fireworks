@@ -17,6 +17,7 @@ productBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     counter++;
     productCounter.textContent = counter;
+    alert('Product added to cart!');
   });
 });
 
