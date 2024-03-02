@@ -5,6 +5,7 @@
   --accent-color: #8e2de2;
   --hover-color: #4a00e0;
   --purchase-color: #179c0b;
+  --animation-duration: 8s;
 }
 
 *,
@@ -33,6 +34,59 @@ textarea {
   resize: none;
 }
 
+/* ============================================ ANIMATIONS =============================================== */
+@keyframes scaleAnimation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes firework {
+  0%, 50% { 
+    width: 0vmin;
+    opacity: 1;
+  }
+  75%, 100% { 
+    width: 45vmin;
+    opacity: 0;
+  }
+}
+
+.firework,
+.firework::before,
+.firework::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5vmin;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle, red 0.2vmin, #0000 0) 50% 00%,
+    radial-gradient(circle, orange 0.3vmin, #0000 0) 00% 50%,
+    radial-gradient(circle, yellow 0.5vmin, #0000 0) 50% 99%,
+    radial-gradient(circle, green 0.2vmin, #0000 0) 99% 50%,
+    radial-gradient(circle, blue 0.3vmin, #0000 0) 80% 90%,
+    radial-gradient(circle, indigo 0.5vmin, #0000 0) 95% 90%,
+    radial-gradient(circle, violet 0.5vmin, #0000 0) 10% 60%,
+    radial-gradient(circle, red 0.2vmin, #0000 0) 31% 80%,
+    radial-gradient(circle, orange 0.3vmin, #0000 0) 80% 10%,
+    radial-gradient(circle, yellow 0.2vmin, #0000 0) 90% 23%,
+    radial-gradient(circle, green 0.3vmin, #0000 0) 45% 20%,
+    radial-gradient(circle, blue 0.5vmin, #0000 0) 13% 24%
+    ;
+  background-size: 0.5vmin 0.5vmin;
+  background-repeat: no-repeat;
+  animation: firework var(--animation-duration) infinite;
+}
+
+.firework::before {
+  transform: translate(-50%, -50%) rotate(25deg) !important; 
+}
+
+.firework::after {
+  transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
+
 /* ============================================ NAVBAR =============================================== */
 #navbar {
   position: sticky;
@@ -54,14 +108,9 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5rem;
 
   .navbar-item {
-    margin-right: 5rem;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
     .navbar-link {
       text-decoration: none;
       font-size: 2rem;
@@ -78,6 +127,13 @@ textarea {
         justify-content: center;
         align-content: center;
       }
+    }
+
+    .navbar-logo {
+      width: 75px;
+      height: auto;
+      border-radius: 50%;
+      animation: scaleAnimation var(--animation-duration) infinite;
     }
 
     #cartBtn {
@@ -175,7 +231,7 @@ textarea {
   .product-content {
     padding: 2rem;
     border-radius: 5px;
-    background-color: var(--hover-color);
+    background-color: var(--accent-color);
     color: var(--secondary-color);
   }
 
