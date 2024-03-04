@@ -5,7 +5,8 @@
   --accent-color: #8e2de2;
   --hover-color: #4a00e0;
   --purchase-color: #179c0b;
-  --animation-duration: 8s;
+  --animation-duration: 6s;
+  --animation-delay: 5s;
 }
 
 *,
@@ -36,8 +37,19 @@ textarea {
 
 /* ============================================ ANIMATIONS =============================================== */
 @keyframes scaleAnimation {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(0) scale(1.15); }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes firework {
@@ -76,7 +88,7 @@ textarea {
     ;
   background-size: 0.5vmin 0.5vmin;
   background-repeat: no-repeat;
-  animation: firework var(--animation-duration) infinite;
+  animation: firework var(--animation-duration) 1s infinite;
 }
 
 .firework::before {
@@ -129,11 +141,67 @@ textarea {
       }
     }
 
+    &.navbar-item-mascot {
+      opacity: 0;
+      /* forwards will keep the element styles applied to it 
+      by the last keyframe of the animation after the animation completes. */
+      animation: slideInFromLeft 2.5s var(--animation-delay) forwards; 
+
+      &:hover .navbar-link {
+        visibility: visible;
+      }
+
+      .navbar-link {
+        visibility: hidden;
+        position: absolute;
+        background-color: var(--hover-color);
+        color: var(--secondary-color);
+        padding: 1rem;
+        z-index: 10;
+        right: 80px;
+        top: 10px;
+        transition: all 0.2s ease-in-out, visibility 0.1s ease-in-out;
+        border-radius: 5px;
+        font-style: italic;
+        font-size: 1.6rem;
+
+        &:hover {
+          background-color: var(--purchase-color);
+
+          &::before {
+            border-bottom-color: var(--purchase-color);
+          }
+        } 
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid var(--hover-color);
+          top: 15px;
+          right: -14px;
+          transform: rotate(-270deg);
+          transition: all 0.2s ease-in-out, visibility 0.1s ease-in-out;
+        } 
+      }
+    }
+
+    &.navbar-item-home {
+      position: relative;
+      z-index: 10;
+    }
+
     .navbar-logo {
       width: 75px;
       height: auto;
       border-radius: 50%;
-      animation: scaleAnimation var(--animation-duration) infinite;
+      position: relative;
+      z-index: 10;
+      animation: scaleAnimation var(--animation-duration) calc(var(--animation-delay) + 2.5s) infinite;
+      transition: all 0.2s ease-in-out;
     }
 
     #cartBtn {
