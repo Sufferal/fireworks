@@ -1,9 +1,7 @@
 # Firefly
-A clean and simple website for a small firework company. It features a robust design with a focus on the products, reviews and company values. The products are displayed in a grid layout and range from fireworks to sparklers, fountains and more.
+A clean, simple and responsive website for a small firework company. It features a robust design with a focus on the products, reviews and company values. The products are displayed in a grid layout and range from fireworks to sparklers, fountains and more.
 
-***The mobile version is still in development.***
-
-The website is hosted on GitHub Pages and can be accessed [here](https://sufferal.github.io/fireworks/). 
+The website is hosted on GitHub Pages and can be accessed both on desktop and mobile [here](https://sufferal.github.io/fireworks/). 
 
 Live demo link: [sufferal.github.io/fireworks/](https://sufferal.github.io/fireworks/)
 
