@@ -63,15 +63,6 @@ function hideElements() {
     for (let i = 3; i < products.length; i++) {
       products[i].classList.add('hide-mobile');
     }
-    
-    // Hide navbar items on mobile initially
-    navbarItems.forEach((item) => {
-      if (!toggleBtn.classList.contains('active') 
-       && !item.classList.contains('navbar-item-mobile')) {
-        item.classList.add('hide-mobile');
-      }
-    });
-
   } else {
     for (let i = 3; i < products.length; i++) {
       products[i].classList.remove('hide-mobile');
