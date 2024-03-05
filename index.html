@@ -55,6 +55,13 @@
               <span id="productCounter">0</span>
             </button>
           </li>
+          <div class="navbar-item navbar-item-mobile">
+            <button id="toggleMenu">
+              <div class="menu-line"></div>
+              <div class="menu-line"></div>
+              <div class="menu-line"></div>
+            </button>
+          </div>
         </ul>
       </div>
     </nav>
@@ -65,9 +72,11 @@
         <p class="header-desc">
           Are you looking for a way to make your next celebration more
           spectacular? <br />
-          Whether it's a birthday, a wedding, a New Year's Eve, or any other
-          special occasion, nothing beats the thrill of watching fireworks light
-          up the sky.
+          <span class="hide-mobile">
+            Whether it's a birthday, a wedding, a New Year's Eve, or any other
+            special occasion, nothing beats the thrill of watching fireworks light
+            up the sky.
+          </span>
         </p>
         <button class="header-btn">
           <a href="#products"> Learn more </a>
@@ -80,11 +89,14 @@
         <h2 class="section-title">Products</h2>
         <p class="section-desc">
           We have a wide range of fireworks for sale, from sparklers and
-          fountains to rockets and barrages. You can browse our catalog and
-          order your fireworks with just a few clicks. We deliver nationwide,
-          with fast and secure shipping. Plus, we offer discounts and freebies
-          for bulk orders. <br />
-          Don't miss this chance to add some magic and excitement to your event.
+          fountains to rockets and barrages. 
+          <span class="hide-mobile">
+            You can browse our catalog and
+            order your fireworks with just a few clicks. We deliver nationwide,
+            with fast and secure shipping. Plus, we offer discounts and freebies
+            for bulk orders. <br />
+            Don't miss this chance to add some magic and excitement to your event.
+          </span>
         </p>
         <div class="section-content">
           <div class="products">
@@ -429,12 +441,13 @@
                 </button>
               </div>
             </div>
+            <button id="showMore" type="button">Show more >></button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="reviews">
+    <section id="reviews" class="section">
       <div class="container">
         <h2 class="section-title">Reviews</h2>
         <p class="section-desc">
@@ -453,8 +466,10 @@
                 <h2 class="review-customer">Callie Mcfarland</h2>
                 <p class="review-desc">
                   Impressive display! The vivid colors and synchronized
-                  explosions created a mesmerizing spectacle. The grand finale
-                  was particularly breathtaking, leaving everyone in awe.
+                  explosions created a mesmerizing spectacle. 
+                  <span class="hide-mobile">
+                  The grand finale was particularly breathtaking, leaving everyone in awe.
+                  </span>
                 </p>
               </div>
             </div>
@@ -469,9 +484,12 @@
                 <h2 class="review-customer">Morgan Phillips</h2>
                 <p class="review-desc">
                   The variety of fireworks available on the site is
-                  mind-blowing. From vibrant sparklers to awe-inspiring aerial
-                  displays, they have everything a pyrotechnics enthusiast could
-                  dream of.
+                  mind-blowing.
+                  <div class="hide-mobile">
+                    From vibrant sparklers to awe-inspiring aerial
+                    displays, they have everything a pyrotechnics enthusiast could
+                    dream of.
+                  </div>
                 </p>
               </div>
             </div>
@@ -486,8 +504,11 @@
                 <h2 class="review-customer">Johnny Landry</h2>
                 <p class="review-desc">
                   Navigating the website was a breeze, and the barrage section
-                  had an incredible range of options. From the classic to the
-                  cutting-edge, I was spoiled for choice.
+                  had an incredible range of options.
+                  <span class="hide-mobile">
+                    From the classic to the
+                    cutting-edge, I was spoiled for choice.
+                  </span>
                 </p>
               </div>
             </div>
@@ -496,17 +517,20 @@
       </div>
     </section>
 
-    <section class="section" id="about-us">
+    <section id="about-us" class="section">
       <div class="container">
         <h2 class="section-title">About us</h2>
         <p class="section-desc">
           Firefly is a family-owned business that has been providing fireworks
-          for over 20 years. We are passionate about fireworks and committed to
-          delivering the best products and services to our customers. Our
-          fireworks are made with the highest quality materials and are
-          guaranteed to light up the sky and bring joy to any event. We are
-          proud to be a part of your celebrations and look forward to serving
-          you for many years to come.
+          for over 20 years. 
+          <span class="hide-mobile">
+            We are passionate about fireworks and committed to
+            delivering the best products and services to our customers. Our
+            fireworks are made with the highest quality materials and are
+            guaranteed to light up the sky and bring joy to any event. We are
+            proud to be a part of your celebrations and look forward to serving
+            you for many years to come.
+          </span>
         </p>
         <div class="section-content">
           <h2 class="values-title">Our values</h2>
@@ -554,12 +578,15 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section id="contact" class="section">
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <p class="section-desc">
           If you have any questions or need assistance, feel free to contact us
-          using the form below. We will get back to you as soon as possible.
+          using the form below. 
+          <span class="hide-mobile">
+            We will get back to you as soon as possible.
+          </span>
         </p>
         <div class="section-content">
           <form id="contactForm" class="contact-form">
