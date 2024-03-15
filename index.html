@@ -13,6 +13,9 @@
       rel="stylesheet"
     />
 
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/utilities.css" />
@@ -84,55 +87,56 @@
       </div>
     </header>
 
-    <section id="products" class="section">
-      <div class="container">
-        <h2 class="section-title">Products</h2>
-        <p class="section-desc">
+    <section id="products" class="my-20">
+      <div class="w-4/5 mx-auto">
+        <h2 class="font-sans text-center font-bold text-5xl mb-12">Products</h2>
+        <p class="w-4/5 mx-auto mb-12 font-serif text-center text-2xl leading-10 md:mb-24 md:text-3xl">
           We have a wide range of fireworks for sale, from sparklers and
           fountains to rockets and barrages. 
-          <span class="hide-mobile">
+          <span class="hidden md:inline">
             You can browse our catalog and
             order your fireworks with just a few clicks. We deliver nationwide,
             with fast and secure shipping. Plus, we offer discounts and freebies
-            for bulk orders. <br />
+            for bulk orders. <br>
             Don't miss this chance to add some magic and excitement to your event.
           </span>
         </p>
         <div class="section-content">
-          <div class="products">
+          <div class="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-32">
             <div class="product">
               <img
                 src="./img/products/firework_1.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Red fireworks</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-red-700 text-white text-4xl my-6 py-2 rounded-md">Red fireworks</h2>
+              <div class="border-solid border-2 border-red-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Experience the magic of the red fireworks! These fireworks
                   light up the sky with a spectacular color, creating a stunning
                   spectacle.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">500 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$200</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">5 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -142,35 +146,36 @@
               <img
                 src="./img/products/firework_2.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Green fireworks</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-green-700 text-white text-4xl my-6 py-2 rounded-md"">Green fireworks</h2>
+              <div class="border-solid border-2 border-green-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Witness the enchantment of green fireworks! These dazzling
                   displays illuminate the heavens with a great color, producing
                   a breathtaking show.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">300 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$150</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">12 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -180,35 +185,36 @@
               <img
                 src="./img/products/firework_3.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Blue fireworks</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-blue-700 text-white text-4xl my-6 py-2 rounded-md"">Blue fireworks</h2>
+              <div class="border-solid border-2 border-blue-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Indulge in the wonder of blue fireworks! These mesmerizing
                   displays illuminate the sky with a magnificent hue, crafting a
                   breathtaking spectacle.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">1000 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$600</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">8 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -218,35 +224,36 @@
               <img
                 src="./img/products/firework_4.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Sparklers</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-amber-500 text-white text-4xl my-6 py-2 rounded-md"">Sparklers</h2>
+              <div class="border-solid border-2 border-amber-500 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Delight in the magic of azure sparklers! These captivating
                   illuminations shimmer and gleam, creating a truly mesmerizing
                   experience.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">0 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$20</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">3 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -256,35 +263,36 @@
               <img
                 src="./img/products/firework_5.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Multicolor fireworks</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-pink-700 text-white text-4xl my-6 py-2 rounded-md"">Multicolor fireworks</h2>
+              <div class="border-solid border-2 border-pink-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Experience the magic of numerous fireworks! These stunning
                   exhibitions light up the sky with a varied palette of colors,
                   creating an amazing spectacle.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">1000 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$800</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">6 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -294,35 +302,36 @@
               <img
                 src="./img/products/firework_6.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Fountains</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-amber-500 text-white text-4xl my-6 py-2 rounded-md"">Fountains</h2>
+              <div class="border-solid border-2 border-amber-500 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Revel in the enchantment of sapphire fountains! These
                   captivating water displays shimmer, delivering an utterly
                   enchanting experience.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">0 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$50</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">5 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -332,35 +341,36 @@
               <img
                 src="./img/products/firework_7.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Rockets</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-pink-700 text-white text-4xl my-6 py-2 rounded-md"">Rockets</h2>
+              <div class="border-solid border-2 border-pink-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Embark on the thrill of indigo rockets! These dynamic
                   projectiles soar through the sky with exhilarating speed,
                   delivering a truly exhilarating spectacle.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">2000 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$700</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">4 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -370,35 +380,36 @@
               <img
                 src="./img/products/firework_8.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">Barrages</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-pink-700 text-white text-4xl my-6 py-2 rounded-md"">Barrages</h2>
+              <div class="border-solid border-2 border-pink-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Immerse yourself in the excitement of barrages! These powerful
                   sequences unleash a symphony, offering a thrilling and
                   visually dynamic experience.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">1500 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$900</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">5 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
@@ -408,40 +419,41 @@
               <img
                 src="./img/products/firework_9.jpg"
                 alt="firework_1"
-                class="product-img"
+                class="h-96 mx-auto rounded-md"
               />
-              <div class="product-content">
-                <h2 class="product-title">White fireworks</h2>
-                <p class="product-desc">
+              <h2 class="font-sans text-center font-bold bg-pink-700 text-white text-4xl my-6 py-2 rounded-md"">White fireworks</h2>
+              <div class="border-solid border-2 border-pink-700 rounded-md px-8 py-8">
+                <p class="mb-4">
                   Explore the enchantment of ivory fireworks! These captivating
                   displays grace the sky with a spectrum of colors, crafting a
                   stunning spectacle.
                 </p>
-                <div class="product-details">
-                  <p class="product-detail">
-                    <span class="product-label">Height:</span>
+                <div>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Height:</span>
                     <span class="product-height">400 meters</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Price:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Price:</span>
                     <span class="product-price">$300</span>
                   </p>
-                  <p class="product-detail">
-                    <span class="product-label">Duration:</span>
+                  <p class="flex justify-between">
+                    <span class="font-bold">Duration:</span>
                     <span class="product-duration">7 minutes</span>
                   </p>
                 </div>
-                <button class="product-btn">
-                  <span class="btn-text">Add to cart</span>
+                <button class="mt-4 w-full flex justify-center bg-green-700 text-white font-bold py-4 rounded-md 
+                transition-all hover:bg-green-800">
+                  <span class="mr-2">Add to cart</span>
                   <img
                     src="./img/products/cart.png"
                     alt="cart"
-                    class="btn-icon"
+                    class="h-10"
                   />
                 </button>
               </div>
             </div>
-            <button id="showMore" type="button">Show more >></button>
+            <button id="showMore" class="hidden" type="button">Show more >></button>
           </div>
         </div>
       </div>
