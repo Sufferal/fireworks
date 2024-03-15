@@ -42,7 +42,7 @@ navbarLinks.forEach((link) => {
 
 // Products
 const productCounter = document.querySelector('#productCounter');
-const productBtns = document.querySelectorAll('.product-btn');
+const productBtns = document.querySelectorAll('.product button');
 
 // Add product to cart
 productBtns.forEach((btn) => {

@@ -390,67 +390,6 @@ textarea {
   }
 }
 
-/* ============================================ CONTACT =============================================== */
-.contact-form {
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--secondary-color);
-  padding: 5rem 0;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 3rem;
-
-  .form-label {
-    color: var(--hover-color);
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .form-input {
-    min-width: 500px;
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-    border: 3px solid transparent;
-    border-radius: 5px;
-    transition: all 0.2s ease-in-out;
-
-    &:focus {
-      outline: none;
-      border-color: var(--hover-color);
-    }
-  }
-
-  #message {
-    min-height: 150px;
-
-  }
-}
-
-.form-btn {
-  min-width: 500px;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  background-color: var(--purchase-color);
-  color: var(--secondary-color);
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-
 /* ============================================ FOOTER =============================================== */
 #footer {
   padding: 3rem 0;
