@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
 import socket
 import argparse
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
 
 def fetch_url(url):
   # Check if URL is provided
@@ -56,6 +57,10 @@ def fetch_url(url):
   print(text)
 
 def fetch_search(search):
+  if search is None:
+    return
+  
+  search = search.replace(' ', '+')
   sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
   sock.connect(("www.google.com", 80))
   request = f"GET /search?q={search} HTTP/1.1\r\nHost: www.google.com\r\nConnection: close\r\n\r\n"
@@ -71,20 +76,32 @@ def fetch_search(search):
 
   sock.close()
   soup = BeautifulSoup(response, "html.parser")
-  results = soup.find_all('div', class_='g')
+  links_title = soup.find_all('h3')
+  links_elements = [links_title[i].find_parent('a') for i in range(len(links_title))]
 
-  for result in results[:10]:
-    title = result.find('h3').text
-    link = result.find('a')['href']
-    print(f"{title}\n{link}\n")
+  # print("titles:", links_title)
+  # print("\nelements:", links_elements)
+
+  for i, link in enumerate(links_elements):
+    if link is None:
+      continue
+
+    url = link.get('href')
+    parsed_url = urlparse(url)
+    actual_url = parse_qs(parsed_url.query)['q']
+
+    print("Link", i+1, "=", actual_url[0])
 
 def parse_args():
   parser = argparse.ArgumentParser(description="HTTP Client", add_help=False)
   parser.add_argument("-u", "--url", help="make an HTTP request to the specified URL and print the response")
-  parser.add_argument("-s", "--search", help="make an HTTP request to search the term using Google search engine and print top 10 results")
+  parser.add_argument("-s", "--search", nargs="+", help="make an HTTP request to search the term(s) using Google search engine and print top 10 results")
   parser.add_argument("-h", "--help", action="help", default=argparse.SUPPRESS,
                       help="show all the options and their description")
   args = parser.parse_args()
+
+  if args.search:
+    args.search = ' '.join(args.search)
 
   if not any(vars(args).values()):
     parser.print_help()
