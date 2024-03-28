@@ -3,8 +3,9 @@ import socket
 import argparse
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, parse_qs
+import ssl
 
-def fetch_url(url):
+def fetch_url(url, redirect_count=0):
   # Check if URL is provided
   if not url:
     return
@@ -15,7 +16,7 @@ def fetch_url(url):
     if result.scheme and result.netloc:
       url_tmp = result.geturl()
     elif result.path and not result.scheme:
-      url_tmp = 'http://' + url
+      url_tmp = 'https://' + url
       result = urlparse(url_tmp)
       if not all([result.scheme, result.netloc]):
         print(f"URL is invalid: {url}")
@@ -27,18 +28,23 @@ def fetch_url(url):
     print(f"URL is invalid: {url}")
     return
 
-  port = 80
-  recv_size = 4096
+  if result.scheme == 'https':
+    port = 443
+    context = ssl.create_default_context()
+    sock = context.wrap_socket(socket.socket(socket.AF_INET), server_hostname=result.netloc)
+  else:
+    port = 80
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-  sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+  recv_size = 4096
   
-  try: 
-    sock.connect((url, port))
+  try:
+    sock.connect((result.netloc, port))
   except socket.gaierror:
     print(f"Unable to connect: {url} is not a known hostname")
     return
   
-  request = f"GET / HTTP/1.1\r\nHost: {url}\r\nConnection: close\r\n\r\n"
+  request = f"GET / HTTP/1.1\r\nHost: {result.netloc}\r\nConnection: close\r\n\r\n"
   sock.send(request.encode())
 
   response = b""
@@ -52,9 +58,33 @@ def fetch_url(url):
   sock.close()
 
   response = response.decode(errors='ignore')
-  soup = BeautifulSoup(response, "html.parser")
-  text = soup.get_text()
-  print(text)
+  status_code = int(response.split(' ')[1])
+  redirection_status_codes = [301, 302, 303, 307, 308]
+
+  print(f"Status code: {status_code}")
+  if status_code in redirection_status_codes:
+    if redirect_count >= 5:
+      print("(Status): Too many redirects. Exiting...")
+      return
+
+    location = next(line for line in response.split('\r\n') if line.startswith('Location: '))
+    new_url = location.split(': ')[1]
+    fetch_url(new_url, redirect_count = redirect_count + 1)
+  else:
+    soup = BeautifulSoup(response, "html.parser")
+    # text = soup.get_text()
+    # print(text)
+
+    tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'a']
+    tag_texts = {tag: [] for tag in tags}
+
+    for tag in tags:
+      elements = soup.find_all(tag)
+      for element in elements:
+        tag_texts[tag].append(element.get_text())
+
+    for tag, texts in tag_texts.items():
+      print(f"{tag}: {texts}")   
 
 def fetch_search(search):
   if search is None:
