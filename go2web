@@ -4,10 +4,22 @@ import argparse
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, parse_qs
 import ssl
+import os
+import time
+
+CACHE_DIR = "cache"
+EXPIRATION_TIME = 10 # seconds
 
 def fetch_url(url, redirect_count=0):
   # Check if URL is provided
   if not url:
+    return
+  
+  # Check if URL is cached
+  cached_response = load_from_cache(url)
+  if cached_response:
+    print("(Cache): Fetching from cache...")
+    print(cached_response)
     return
   
   # Check if URL is valid
@@ -72,8 +84,10 @@ def fetch_url(url, redirect_count=0):
     fetch_url(new_url, redirect_count = redirect_count + 1)
   else:
     soup = BeautifulSoup(response, "html.parser")
-    # text = soup.get_text()
-    # print(text)
+    text = soup.get_text()
+    print(text) 
+
+    save_to_cache(url, text)
 
     tags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'a']
     tag_texts = {tag: [] for tag in tags}
@@ -86,8 +100,41 @@ def fetch_url(url, redirect_count=0):
     for tag, texts in tag_texts.items():
       print(f"{tag}: {texts}")   
 
+def save_to_cache(url, response):
+  if not os.path.exists(CACHE_DIR):
+    os.makedirs(CACHE_DIR)
+
+  filename = url_to_filename(url)
+  with open(os.path.join(CACHE_DIR, filename), 'w') as file:
+    file.write(response)
+
+  with open(os.path.join(CACHE_DIR, filename + "_time"), 'w') as file:
+    file.write(str(time.time()))    
+
+def load_from_cache(url):
+  filename = os.path.join(CACHE_DIR, url_to_filename(url))
+
+  if os.path.exists(filename) and os.path.exists(filename + "_time"):
+    with open(filename + "_time", 'r') as file:
+      timestamp = float(file.read())
+
+    if time.time() - timestamp < EXPIRATION_TIME:
+      with open(filename, 'r') as file:
+        return file.read()
+
+  return None
+
+def url_to_filename(url):
+  return url.replace('/', '_').replace(':', '_').replace('?', '_').replace(".", "_")
+
 def fetch_search(search):
   if search is None:
+    return
+
+  cached_response = load_from_cache(search)
+  if cached_response:
+    print("(Cache): Fetching from cache...")
+    print(cached_response)
     return
   
   search = search.replace(' ', '+')
@@ -112,6 +159,7 @@ def fetch_search(search):
   # print("titles:", links_title)
   # print("\nelements:", links_elements)
 
+  result = ''
   for i, link in enumerate(links_elements):
     if link is None:
       continue
@@ -121,6 +169,9 @@ def fetch_search(search):
     actual_url = parse_qs(parsed_url.query)['q']
 
     print("Link", i+1, "=", actual_url[0])
+    result += f"Link {i+1}: {actual_url[0]}\n"
+  
+  save_to_cache(search, result)
 
 def parse_args():
   parser = argparse.ArgumentParser(description="HTTP Client", add_help=False)
