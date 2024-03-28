@@ -25,8 +25,10 @@ def fetch_url(url, redirect_count=0):
   # Check if URL is valid
   try:
     result = urlparse(url)
+    print(f"URL: {url}")
     if result.scheme and result.netloc:
       url_tmp = result.geturl()
+      print(f"URL is valid: {url_tmp}")
     elif result.path and not result.scheme:
       url_tmp = 'https://' + url
       result = urlparse(url_tmp)
@@ -56,7 +58,7 @@ def fetch_url(url, redirect_count=0):
     print(f"Unable to connect: {url} is not a known hostname")
     return
   
-  request = f"GET / HTTP/1.1\r\nHost: {result.netloc}\r\nConnection: close\r\n\r\n"
+  request = f"GET {result.path or '/'} HTTP/1.1\r\nHost: {result.netloc}\r\nConnection: close\r\n\r\n"
   sock.send(request.encode())
 
   response = b""
@@ -66,6 +68,24 @@ def fetch_url(url, redirect_count=0):
       response += part
     else:
       break
+
+    # Parse the headers from the response
+  headers, body = response.split(b'\r\n\r\n', 1)
+  headers = headers.decode().split('\r\n')
+
+  # Find the Content-Type header
+  content_type = None
+  for header in headers:
+    if header.lower().startswith('content-type:'):
+      content_type = header.split(':', 1)[1].strip()
+
+  # Check the content type
+  if content_type == 'application/json':
+    print('This URL returns JSON data')
+  elif content_type == 'text/html':
+    print('This URL returns HTML data')
+  else:
+    print('This URL returns data of type: ' + content_type)
 
   sock.close()
 
