@@ -145,7 +145,19 @@ def load_from_cache(url):
   return None
 
 def url_to_filename(url):
-  return url.replace('/', '_').replace(':', '_').replace('?', '_').replace(".", "_")
+  replace_chars = {
+      '/': '_',
+      ':': '_',
+      '?': '_',
+      '.': '_',
+      '+': '_',
+      ' ': '_'
+  }
+
+  for char, replacement in replace_chars.items():
+    url = url.replace(char, replacement)
+
+  return url  
 
 def fetch_search(search):
   if search is None:
